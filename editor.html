@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/editor-css.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/images/logo.png" />
+
+    <title>reimage</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation-menu">
+        <ul>
+          <li>
+            <a href="#">File</a>
+            <ul>
+              <li>
+                <input
+                  type="button"
+                  id="btnFileUpload"
+                  class="Buttons"
+                  value="Open File"
+                />
+                <span id="spnFilePath"></span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="FileUpload1"
+                  style="display: none"
+                />
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="openNav('myNav');">Open URL</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">Edit</a>
+            <ul>
+              <li>
+                <a href="#" onclick="openNav('checkoutmenu');">Export</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#" onclick="OpenFiltersPanel();">Filters</a>
+          </li>
+
+          <li>
+            <input
+              class="Buttons"
+              title="flip horizontally"
+              type="image"
+              src="/images/flip-horizontal-icon-16.png"
+              id="flipXButton"
+            />
+          </li>
+
+          <li>
+            <input
+              class="Buttons"
+              type="image"
+              title="flip vertically"
+              src="/images/flip-vertical-icon-16.png"
+              id="flipYButton"
+            />
+          </li>
+
+          <li>
+            <input
+              class="Buttons"
+              title="rotate"
+              id="rotatebutton"
+              type="image"
+              src="/images/rotate-icon-16.png"
+            />
+          </li>
+
+          <li id="loginbutton">
+            <input
+              class="Buttons"
+              title="login"
+              type="image"
+              src="/images/login-icon-16.png"
+              onclick="openNav('loginmenu');"
+            />
+          </li>
+
+          <li class="fullscreen">
+            <input
+              class="Buttons"
+              title="full screen"
+              type="image"
+              src="/images/fullscreen-icon-16.png"
+              onclick="openFullscreen();"
+            />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="filters-menu">
+        <div id="container">
+          <!--Controls for CSS filters via range input-->
+          <div class="sliders" style="width: 100%; height: 100%; padding: 10px">
+            <form id="imageEditor">
+              <p>
+                <label for="gs">Grayscale</label>
+                <input
+                  id="gs"
+                  name="gs"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </p>
+
+              <p>
+                <label for="blur">Blur</label>
+                <input
+                  id="blur"
+                  name="blur"
+                  type="range"
+                  min="0"
+                  max="10"
+                  value="0"
+                />
+              </p>
+
+              <p>
+                <label for="br">Brightness</label>
+                <input
+                  id="br"
+                  name="br"
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </p>
+
+              <p>
+                <label for="ct">Contrast</label>
+                <input
+                  id="ct"
+                  name="ct"
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </p>
+
+              <p>
+                <label for="huer">Hue Rotate</label>
+                <input
+                  id="huer"
+                  name="huer"
+                  type="range"
+                  min="0"
+                  max="360"
+                  value="0"
+                />
+              </p>
+
+              <p>
+                <label for="opacity">Opacity</label>
+                <input
+                  id="opacity"
+                  name="opacity"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="100"
+                />
+              </p>
+
+              <p>
+                <label for="invert">Invert</label>
+                <input
+                  id="invert"
+                  name="invert"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </p>
+
+              <p>
+                <label for="saturate">Saturate</label>
+                <input
+                  id="saturate"
+                  name="saturate"
+                  type="range"
+                  min="0"
+                  max="500"
+                  value="100"
+                />
+              </p>
+
+              <p>
+                <label for="sepia">Sepia</label>
+                <input
+                  id="sepia"
+                  name="sepia"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </p>
+              <a
+                href="javascript:void(0)"
+                class="close"
+                onclick="CloseFiltersPanel();"
+                >&times;
+              </a>
+
+              <input
+                type="reset"
+                form="imageEditor"
+                id="reset"
+                value="Reset Changes"
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="image-container">
+        <!-- container where image will be loaded-->
+        <div id="imageContainer">
+          <img id="img" src="/images/default-image.jpg" />
+        </div>
+      </section>
+
+      <section class="urlinput-menu">
+        <!-- overlay Menu -->
+        <div id="myNav" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a
+            href="javascript:void(0)"
+            class="closebtn"
+            onclick="closeNav('myNav');"
+            >&times;
+          </a>
+
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <!--Form for collecting image URL -->
+            <form id="urlBox" class="center">
+              <input
+                class="url-box"
+                type="url"
+                id="imgUrl"
+                placeholder="Enter url"
+              />
+              <input
+                id="go"
+                type="button"
+                value="Fetch"
+                onclick="addImage();"
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="login-menu">
+        <!-- Login Menu -->
+        <div id="loginmenu" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a
+            href="javascript:void(0)"
+            class="closebtn"
+            onclick="closeNav('loginmenu');"
+            >&times;
+          </a>
+
+          <!-- Overlay content -->
+          <div class="loginsystem">
+            <form
+              name="sign_in"
+              class="logincontent"
+              onsubmit="return validate_form()"
+            >
+              <h1>Create account</h1>
+              <p>
+                Aldreay have an account?
+                <a href="#">Sign in</a>
+              </p>
+              <input type="text" name="username" placeholder="username" />
+              <input type="text" name="firstname" placeholder="first name" />
+              <input type="text" name="lastname" placeholder="last name" />
+              <input type="email" name="email" placeholder="email" />
+              <input type="password" name="password" placeholder="password" />
+              <button class="s">Sign up</button>
+              <h6>------------ Or sign up with ------------</h6>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    <script>
+      function validate_form() {
+        var username = document.forms["sign_in"]["username"].value;
+        var firstname = document.forms["sign_in"]["firstname"].value;
+        var lastname = document.forms["sign_in"]["lastname"].value;
+        var email = document.forms["sign_in"]["email"].value;
+        var password = document.forms["sign_in"]["password"].value;
+
+        if (
+          username == "" ||
+          firstname == "" ||
+          lastname == "" ||
+          email == "" ||
+          password == ""
+        ) {
+          alert("Please fill all the fields");
+          return false;
+        } else {
+          alert("Sign up successful");
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

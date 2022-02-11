@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/index-css.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/images/logo.png" />
+
+    <title>reimage</title>
+  </head>
+  <body>
+    <header>
+      <nav class="home-menu">
+        <h1>reimage</h1>
+
+        <ul>
+          <li>
+            <a onclick="openNav('loginmenu');">Sign up</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="image-container">
+        <img src="/images/photoeditor-ss.png" alt="" />
+      </section>
+
+      <section>
+        <div class="description">
+          <h2>Photo Editing Made Easy.</h2>
+
+          <p>
+            reimage's all-in-one online Creative Platform has everything you
+            need to easily edit photos.
+          </p>
+
+          <ul>
+            <li>
+              <a href="/editor.html">Start Editing</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="login-menu">
+        <!-- Login Menu -->
+        <div id="loginmenu" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a
+            href="javascript:void(0)"
+            class="closebtn"
+            onclick="closeNav('loginmenu');"
+            >&times;
+          </a>
+
+          <!-- Overlay content -->
+          <div class="loginsystem">
+            <form name="sign_in" class="logincontent" onsubmit="return validate_form()">
+              <h1>Create account</h1>
+              <p>
+                Aldreay have an account?
+                <a href="#">Sign in</a>
+              </p>
+              <input type="text" name="username" placeholder="username" />
+              <input type="text" name="firstname" placeholder="first name" />
+              <input type="text" name="lastname" placeholder="last name" />
+              <input type="email" name="email" placeholder="email" />
+              <input type="password" name="password" placeholder="password" />
+              <button class="s">Sign up</button>
+              <h6>------------ Or sign up with ------------</h6>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <ul>
+        <li>
+          <a href="mailto:kungumagokul2001@gmail.com">kungumagokul2001@gmail.com</a></p>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <a href="mailto:prakaasharun50@gmail.com">prakaasharun50@gmail.com</a></p>
+        </li>
+      </ul>
+    </footer>
+
+    <script>
+      // open
+      function openNav(id) {
+        document.getElementById(id).style.display = "block";
+      }
+
+      // Close
+      function closeNav(id) {
+        document.getElementById(id).style.display = "none";
+      }
+
+      // Validate form
+      function validate_form()
+      {
+        var username = document.forms["sign_in"]["username"].value;
+        var firstname = document.forms["sign_in"]["firstname"].value;
+        var lastname = document.forms["sign_in"]["lastname"].value;
+        var email = document.forms["sign_in"]["email"].value;
+        var password = document.forms["sign_in"]["password"].value;
+
+        if (username == "" || firstname == "" || lastname == "" || email == "" || password == "")
+        {
+          alert("Please fill all the fields");
+          return false;
+        }
+        else
+        {
+          alert("Sign up successful");
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

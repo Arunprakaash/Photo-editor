@@ -1,0 +1,301 @@
+.navigation-menu,
+.navigation-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body {
+  background-size: 30px 30px;
+  background-image: radial-gradient(circle, #343942 1px, #0d1117 1px);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.navigation-menu {
+  margin: 10px;
+  background-color: rgb(22, 27, 34);
+  border-radius: 5px;
+}
+
+.navigation-menu ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.navigation-menu ul li {
+  float: left;
+  list-style: none;
+}
+
+.navigation-menu a {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.navigation-menu li a:hover {
+  color: #343942;
+}
+
+.navigation-menu ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #161b22;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.navigation-menu ul li:hover ul {
+  display: block;
+}
+
+input.Buttons {
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px 16px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+input.Buttons:hover {
+  display: inline-block;
+  color: #343942;
+}
+.overlay {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(22, 27, 34, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.url-box {
+  background-color: transparent;
+  display: inline-block;
+  height: 30px;
+  border: none;
+  border-bottom: 3px solid #fffffd;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px;
+  width: 50%;
+  outline: none;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+
+#go {
+  display: inline-block;
+  height: 4 0px;
+  background-color: transparent;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 20px;
+  width: 100px;
+  border: 3px solid #ffffff;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+
+#container {
+  margin-top: 30px;
+  margin-left: 1330px;
+  padding: 0;
+  width: 12%;
+  height: 650px;
+  position: absolute;
+  background-color: #161b22;
+  border-radius: 5px;
+}
+
+label {
+  display: inline-block;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+div ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#reset {
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 12.5%;
+  margin-top: 2%;
+  text-align: center;
+  background-color: #0d1117;
+  border: none;
+  cursor: pointer;
+}
+#reset:hover {
+  color: #343942;
+}
+
+.sliders p input {
+  display: block;
+  padding-left: 10px;
+}
+
+.sliders p {
+  padding: 0px 10px;
+  vertical-align: middle;
+}
+
+#container {
+  display: none;
+}
+
+.close {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#imageContainer {
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 150px;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+#imageContainer img {
+  width: 800px;
+  height: 600px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+#loginbutton,
+.fullscreen {
+  float: right;
+}
+
+.loginsystem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  max-height: 450px;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.logincontent {
+  text-align: center;
+  color: #161b22;
+}
+.logincontent h1 {
+  margin-bottom: 5px;
+  margin-right: 5px;
+  color: #161b22;
+}
+.logincontent p {
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: 100;
+  color: #161b22;
+}
+.logincontent a {
+  color: #5da6fa;
+  text-decoration: none;
+}
+
+.logincontent input {
+  display: inline-block;
+  color: #161b22;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 80%;
+  height: 35px;
+  border-radius: 10px;
+  padding-left: 10px;
+  border: none;
+  background-color: rgba(207, 207, 207, 0.274);
+  outline: none;
+  caret-color: #5da6fa;
+  margin-bottom: 10px;
+}
+
+.s {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  background-color: #5da6fa;
+  border: none;
+  color: white;
+  padding: 10px 140px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.signup {
+  padding: 5px 20px;
+  float: left;
+  margin-left: 55px;
+  border: none;
+}
